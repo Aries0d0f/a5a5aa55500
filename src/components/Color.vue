@@ -1,6 +1,6 @@
 <template>
   <div class="color color-container">
-    <div class="color color-block" :style="{ '--color': color }"></div>
+    <div class="color color-block"></div>
     <aside class="color color-mark"><p>{{ color }}</p></aside>
   </div>
 </template>
@@ -17,7 +17,9 @@ export default defineComponent({
   },
   setup: (props) => {
     const color = ref(props.color);
-    return { color };
+    return {
+      color
+    };
   }
 })
 </script>
@@ -33,7 +35,7 @@ export default defineComponent({
   }
 
   &-block {
-    background-color: var(--color);
+    background-color: v-bind(color);
     height: 48px;
     width: 48px;
   }
